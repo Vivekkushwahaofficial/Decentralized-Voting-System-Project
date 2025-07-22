@@ -4,7 +4,6 @@ pragma solidity ^0.8.0;
 /**
  * @title Decentralized Voting System
  * @dev A smart contract for conducting transparent and secure elections
- * @author Decentralized Voting Team
  */
 contract Project {
     // Struct to represent a candidate
@@ -190,9 +189,7 @@ contract Project {
      * @return count of registered voters
      */
     function getRegisteredVotersCount() public view returns (uint256) {
-        // Note: This is a simplified implementation
-        // In a real-world scenario, you'd maintain a separate counter
-        return totalVotes; // This represents voters who have voted
+        return totalVotes; // Simplified
     }
     
     /**
@@ -201,5 +198,28 @@ contract Project {
      */
     function isVotingOpen() public view returns (bool) {
         return votingOpen;
+    }
+
+    /**
+     * @dev Get all candidates with their details
+     * @return ids, names, voteCounts
+     */
+    function getAllCandidates() public view returns (
+        uint256[] memory, 
+        string[] memory, 
+        uint256[] memory
+    ) {
+        uint256[] memory ids = new uint256[](candidateCount);
+        string[] memory names = new string[](candidateCount);
+        uint256[] memory voteCounts = new uint256[](candidateCount);
+        
+        for (uint256 i = 0; i < candidateCount; i++) {
+            Candidate memory c = candidates[i + 1];
+            ids[i] = c.id;
+            names[i] = c.name;
+            voteCounts[i] = c.voteCount;
+        }
+        
+        return (ids, names, voteCounts);
     }
 }
