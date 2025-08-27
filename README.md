@@ -140,3 +140,5 @@ For support, please open an issue on GitHub or contact our team at support@decen
 <img width="1917" height="887" alt="Core T2 Testnet" src="https://github.com/user-attachments/assets/e6789cb1-4882-4a54-901a-fcdf7a75f382" />
 
 Contract Address : 0x28A23475AFa43265799E5A08B94FB99868a65eF4
+I have updated this project.
+
